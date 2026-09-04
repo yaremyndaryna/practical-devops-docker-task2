@@ -6,7 +6,7 @@ COPY . .
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
-RUN npm ci && npm run build -- --prod
+RUN npm install && npm run build -- --prod
 
 FROM nginx:alpine AS angular-ui
 
