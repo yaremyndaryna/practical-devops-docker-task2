@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 3080
 
-CMD ["node", "run", "start"]
+CMD ["npm", "run", "start"]
