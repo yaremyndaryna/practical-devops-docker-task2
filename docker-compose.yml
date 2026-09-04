@@ -1,0 +1,26 @@
+version: '3'
+services:
+  nodejs-server:
+    build:
+      context: ./api
+      dockerfile: Dockerfile-dev
+    environment: 
+      - PORT=3080
+    ports: "3080:3080"
+    container_name: node-api
+    volumes: 
+      - ./api:/usr/src/app/api
+      - /usr/src/app/api/node_modules
+  angular-ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile-dev
+      target: angular-ui
+    volumes:
+      - ./templates:/etc/nginx/templates
+    ports: "4201:4201"
+    environment:
+      - NGINX_PORT=4201
+      - WEB_APP=nodejs-server
+      - WEB_PORT=3080
+    container_name: angular-ui
