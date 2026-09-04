@@ -6,7 +6,8 @@ services:
       dockerfile: Dockerfile-dev
     environment: 
       - PORT=3080
-    ports: "3080:3080"
+    ports: 
+      - "3080:3080"
     container_name: node-api
     volumes: 
       - ./api:/usr/src/app/api
@@ -18,7 +19,8 @@ services:
       target: angular-ui
     volumes:
       - ./templates:/etc/nginx/templates
-    ports: "4201:4201"
+    ports: 
+      - "4201:4201"
     environment:
       - NGINX_PORT=4201
       - WEB_APP=nodejs-server
