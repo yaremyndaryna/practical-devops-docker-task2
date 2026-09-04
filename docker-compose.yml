@@ -20,7 +20,7 @@ services:
     volumes:
       - ./templates:/etc/nginx/templates
     ports: 
-      - "4201:4201"
+      - "4201:80"
     environment:
       - NGINX_PORT=4201
       - WEB_APP=nodejs-server

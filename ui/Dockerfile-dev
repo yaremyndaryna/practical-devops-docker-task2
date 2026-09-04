@@ -12,4 +12,4 @@ FROM nginx:alpine AS angular-ui
 
 COPY --from=builder /usr/src/app/app-ui/dist/angular-nodejs-example /usr/share/nginx/html
 
-EXPOSE 4201
+EXPOSE 80
